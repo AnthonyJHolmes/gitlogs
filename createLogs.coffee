@@ -26,7 +26,7 @@ getBuildLogs = (prfx) ->
   execute 'git describe --tags --abbrev=0', (tag) ->
     #get the current/latest tag by passing it to the function @execute
     #using the arguments passed in, Filter through all the logs between the current and second most recent tag and write to a txt file
-    execute 'git log ' + tag.replace('\n', '') + '..head ' + prfx + '--pretty=format:%s \n > log.txt', (logfile) ->
+    execute 'git log ' + tag.replace('\n', '') + '..head ' + prfx + '--pretty=format:"%s %n" > log.txt', (logfile) ->
     return
   return
 
